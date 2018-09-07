@@ -6,10 +6,24 @@ css">
 <script src="http://js.arcgis.com/3.15/"></script>
 <script> 
 var map;
-require(['esri/map'],function(Map){
+require([
+'esri/map',
+'esri/geometry/Extent'
+],function(Map,Extent){
 	map = new Map('mapDiv',{
 		basemap:'national-geographic'		
 	})
+	
+	let extent = new Extent({
+	"type":"extent",
+	"xmin":-26631082.82674244,
+	"ymin":-1703508.3455825984,
+	"xmax":-22015509.310771585,
+	"ymax":-235917.4025076044,
+	"spatialReference":{"wkid":102100,"latestWkid":3857}
+	});
+	
+	map.setExtent(extent);
 });
 </script>
 </head>
